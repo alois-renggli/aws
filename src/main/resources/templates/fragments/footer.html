@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="footer">
+    <script>
+        // document.getElementById("searchBtn").addEventListener("mouseover", function() {
+        //     // var button = document.getElementById("searchBtn");
+        //     console.log(document.getElementById("search").value);
+        //     if (document.getElementById("search").value.length == 0) {
+        //         document.getElementById("searchBtn").setAttribute("disabled", "");
+        //     }
+        //     else {
+        //         document.getElementById("searchBtn").removeAttribute("disabled");
+        //     }
+        // });
+        document.getElementById("searchBtn").addEventListener("click", searchString);
+
+        function searchString() {
+            url = "/posts/search/"+document.getElementById("search").value;
+            console.log(url);
+            window.location.assign(url);
+        }
+        document.getElementById('searchForm').addEventListener('keydown', function (e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) { // 13 is enter
+                searchString();
+            }
+        });
+    // </script>
+</div>
+
+</body>
+</html>
